@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block bodytitle %}{% endblock %}
+
+    <a href="{{ url_for('home_page') }}">Home</a>
+    <a href="{{ url_for('market_page') }}">Market</a>
+
+    <a href="">Login</a>
+    <a href="{{ url_for('register_page') }}">Register</a>
+    <br>
+    <br>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</body>
+</html>

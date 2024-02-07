@@ -1,0 +1,26 @@
+<h1>Market Page</h1>
+
+{% extends 'base.html' %}
+
+<!-- {%block title%} Market {% endblock %} -->
+
+{% block content%}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Product Name</th>
+        <th>Barcode</th>
+        <th>Price</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.barcode}}</td>
+        <td>{{item.price}}</td>
+        <td><button>More Info</button></td>
+        <td><button>Purchase</button></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
